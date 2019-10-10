@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  color: white;
+  background: url('https://fcbrewing.com/wp-content/uploads/2018/06/HOMEPAGE-THESTABLES-4000x2500-min.jpg');
+  background-size: auto;
+  max-height: 97.8vh;
+  font-family: 'Righteous', cursive;
+}
+
+.header {
+  background-color: black;
 }
 
 .App-logo {
@@ -19,4 +28,23 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.address {
+  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: left;
+  font-family: "Fascinate Inline", cursive;
+  font-size: calc(4px + 1vmin);
+  margin: auto;
+}
+
+.heading p {
+  color: blue;
+  font-family: 'Righteous', cursive;
+  font-size: calc(4.5px + 1vmin);
 }

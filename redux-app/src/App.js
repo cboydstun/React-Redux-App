@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux';
+import {getBreweries} from './action/index';
+import Breweries from './components/Breweries';
 
-function App() {
+function App(props) {
+
+  const applyBreweries = () => {
+    props.getBreweries();
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+      <h1 onClick={applyBreweries}>Breweries in Dallas, TX!</h1>
+      </div>
+      <div>
+      <Breweries isFetching={props.isFetching} breweries={props.breweries} />
+      </div>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return{
+  breweries: state.breweries,
+  state: state,
+  isFetching: state.isFetching
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {getBreweries}
+)(App);
